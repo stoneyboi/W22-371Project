@@ -105,6 +105,7 @@ export default class LoginView extends Vue {
 		signInWithEmailAndPassword(this.auth!, this.u_email, this.u_pass)
 			.then(async (cr: UserCredential) => {
 				if (cr.user.emailVerified)
+					console.log("email login")
 					this.$router.push({ name: "home", params: { byWayOf: "Email" } });
 				else {
 					this.showMessage("You must first verify your email");
@@ -120,8 +121,8 @@ export default class LoginView extends Vue {
 			.then((cred: UserCredential) => {
 				console.log("Yes, logged in");
 
-			// Move to the home page
-			this.$router.push({ name: "home", params: { byWayOf: "Google" } });
+				// Move to the home page
+				this.$router.push({ name: "home", params: { byWayOf: "Google" } });
 		})
 		.catch((err: any) => {
 			this.showMessage(`Unable to login with GMail ${err}`);
