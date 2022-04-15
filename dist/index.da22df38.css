@@ -1,0 +1,76 @@
+body {
+  background-color: #ec9018;
+}
+
+nav {
+  max-height: 120px;
+  z-index: 100;
+  background-color: #21995d;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  position: sticky;
+  top: 0;
+}
+
+.navibar, .navibarRight {
+  align-items: center;
+  margin: 0 15px;
+  display: flex;
+}
+
+.navibar ul li {
+  margin: 0 15px;
+  list-style: none;
+  display: inline-block;
+}
+
+.logo {
+  height: 120px;
+  width: 120px;
+  margin-right: 20px;
+}
+
+.search {
+  width: 300px;
+  border-radius: 20px;
+  align-items: center;
+  margin-left: 20px;
+  padding: 0 15px;
+  display: inline-block;
+}
+
+.title {
+  place-self: center;
+  font-family: cursive;
+  font-size: x-large;
+  font-style: italic;
+}
+
+.container {
+  justify-content: space-between;
+  padding: 13px 5%;
+  display: flex;
+}
+
+.divLeft, .divRight {
+  height: 50vh;
+  flex-basis: 25%;
+  align-self: flex-start;
+  position: sticky;
+  top: 70px;
+}
+
+.main {
+  flex-basis: 47%;
+}
+
+.divLinks a {
+  width: fit-content;
+  align-items: center;
+  margin-bottom: 30px;
+  text-decoration: none;
+  display: flex;
+}
+
+/*# sourceMappingURL=index.da22df38.css.map */
