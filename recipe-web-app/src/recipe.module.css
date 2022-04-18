@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+.recipe{
+	border-radius: 10px;
+	box-shadow: 0px 5px 20px rgb(60, 62, 62);
+	margin: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	background-image: linear-gradient(to right,
+		#eecadd 0%, #dbeddb 0%, #b8cbb8 0%,
+		#f2daa9 30%, #dfebb7 64%, #9bebed 100%);
+	align-items: center;
+	min-width: 40%;
+	font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.image{
+	border-radius: 10px;
+	margin:0px 0px 20px 0px;
+}

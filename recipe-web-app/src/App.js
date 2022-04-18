@@ -10,6 +10,7 @@ import NavBar from './NavBar';
 function App() {
   return (
     <div className="App">
+      <header className="header">Recipe Sharing App</header>
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -17,6 +18,7 @@ function App() {
         <Route path="/OurRecipes" element={<OurRecipes />} />
         <Route path="/About" element={<About />} />
       </Routes>
+      <footer className="footer">By Travis Michell</footer>
     </div>
   );
 }

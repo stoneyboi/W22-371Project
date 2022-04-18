@@ -5,12 +5,12 @@ import {Navbar, Nav} from 'react-bootstrap';
 function NavBar() {
     return (
         <div className="navBar">
-            <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/recipes">Recipes</Link></li>
-                <li><Link to="/ourRecipes">Our Recipes</Link></li>
-                <li><Link to="/about">About</Link></li>
-            </ul>
+            <table className="navTable">
+                <td><Link to="/">Home</Link></td>
+                <td><Link to="/recipes">Recipes</Link></td>
+                <td><Link to="/ourRecipes">Your Recipes</Link></td>
+                <td><Link to="/about">About</Link></td>
+            </table>
         </div>
     )
 }
