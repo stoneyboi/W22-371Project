@@ -1,26 +1,39 @@
 <template>
 	<div class="home">
-		<nav class="bar">
+
+		<nav class="navbar">
+
+			<div id="left">
+				<img class="logo" src="../assets/logo.png" />
+				<h1 class="title">RecipeMe</h1>
+			</div>
+
+			<div id="center">
+				<input class="search" type="text" placeholder="Search!" />
+			</div>
+			<h2 class="navibar">Hot Food</h2>
+			<h2 class="navibar">Profile</h2>
+			<h2 class="navibar">Log Out</h2>
+			
+			<!-- <div class="title">
+				<h1>RecipeMe</h1>
+			</div>
+			
 			<div class="navibar">
-				<img src="logo.png" class="logo">
-				<ul id="navbar">
+				<ul id="navElements">
 					<li>
 						<h2>Profile</h2>
 					</li>
 					<li> 
-						<h2>Recipes</h2>
+						<h2>Explore Recipes</h2>
 					</li>
 				</ul>
 			</div>
-	
-			<div class="Title">
-				<h1 class="Title">RecipeMe</h1>
-			</div>
 			
 			<div class="navibarRight">
-				<h1>Log Out</h1>
 				<input type="text" placeholder="Search!" class="search">  
-			</div>
+				<h1>Log Out</h1>
+			</div> -->
 		</nav>
 
 		<div id="insertHere" class="container">
@@ -100,47 +113,48 @@ import { Component, Prop, Vue} from "vue-property-decorator"
 
 @Component
 export default class HomePage extends Vue{
-/* 	const divRoot = document.getElementById("insertHere");
-	const divLeft = document.createElement("div");
-	const divMain = document.createElement("div");
-	const divRight = document.createElement("div");
-	const divLinks = document.createElement("div"); */
-
 	mounted(): void{
 		console.log("Hello home page!");
 	}
-
-/* 	divLeft.className = "divLeft";
-	divMain.className = "Main";
-	divRight.className ="divRight";
-
-	divRoot.appendChild(divLeft);
-	divRoot.appendChild(divMain);
-	divRoot.appendChild(divRight);
-
-	divLeft.appendChild(divLinks); */
-
 
 }
 </script>
 
 <style scoped>
-body {
-	background-color: hsl(34, 85%, 51%)
+.home{
+	background-color: hsl(33, 69%, 69%);
 }
 
 nav{
-	background-color: #21995d;
+	background-color: #246a42;
 	max-height: 120px;
 	display: flex;
 	align-items:center;
-	justify-content:space-between; 
+	justify-content:space-between;
 	position: sticky;
 	top: 0;
 	z-index: 100;
 }
 
-.navibar, .navibarRight{
+nav #left{
+	width: fit-content;
+	display: flex;
+	justify-content: space-between;
+	align-items:center;
+}
+
+nav .title {
+	font-family: "Blazed";
+	font-size: 56px;
+	color: rgb(32,32,32);
+}
+
+.logo{
+	height: 120px;
+	width: 120px;
+}
+
+/* .navibar, .navibarRight{
 	display: flex;
 	align-items: center;
 	margin: 0 15px;
@@ -150,30 +164,30 @@ nav{
 	list-style: none;
 	display: inline-block;
 	margin: 0 15px;
-}
-
-.logo{
-	height: 120px;
-	width: 120px;
-	margin-right: 20px;
-}
+} */
 
 .search{
 	width: 300px;
+	height: 48px;
+	font-size: 32px;
+	font-family: "Blazed";
 	padding: 0 15px;
-	border-radius: 20px;
+	border-radius: 8px;
+	border: 2px solid rgba(0, 255, 13, 0.936);
 	display: inline-block;
 	align-items: center;
-	margin-left: 20px;
+	
 }
 
-.title{
-	font-style: italic;
+/* .title{
+	font-style: italic; 
 	font-family: cursive;
-	font-size: x-large;
+	font-family: "Blazed";
+	font-size: xx-large;
 	justify-self: center;
 	align-self: center;
-}
+	color: rgb(32,32,32);
+} */
 
 .container{
 	display: flex;

@@ -6,7 +6,6 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from './components/HelloWorld.vue';
 import Login from './components/Login.vue'
 import HomePage from './components/HomePage.vue'
 import Profile from './components/Profile.vue'
@@ -29,6 +28,12 @@ export default class App extends Vue {}
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  /* width: 100%;
+  height: 100%; */
+}
+
+@font-face {
+	font-family: 'Blazed';
+	src: local('Blazed'), url('fonts/Blazed.ttf') format('truetype');
 }
 </style>
