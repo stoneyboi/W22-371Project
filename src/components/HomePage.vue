@@ -11,10 +11,21 @@
 			<div id="center">
 				<input class="search" type="text" placeholder="Search!" />
 			</div>
-			<h2 class="navibar">Hot Food</h2>
-			<h2 class="navibar">Profile</h2>
-			<h2 class="navibar">Log Out</h2>
-			
+
+			<div id="right">
+				<button id="explore-btn" class="navibar">Hot Food</button>
+				<div class="dropdown">
+					<button id="profile-btn" class="navibar">Profile
+						<i class="fa fa-caret-down"></i>
+					</button>
+					<div class="dropdown-content">
+						<button id="logout-btn">Log Out</button>
+					</div>
+				</div>
+
+			<!-- <h2 class="navibar">Log Out</h2> -->
+			</div>
+
 			<!-- <div class="title">
 				<h1>RecipeMe</h1>
 			</div>
@@ -122,12 +133,12 @@ export default class HomePage extends Vue{
 
 <style scoped>
 .home{
-	background-color: hsl(33, 69%, 69%);
+	background-color: hsl(32, 69%, 69%);
 }
 
 nav{
 	background-color: #246a42;
-	max-height: 120px;
+	height: 88px;
 	display: flex;
 	align-items:center;
 	justify-content:space-between;
@@ -150,8 +161,8 @@ nav .title {
 }
 
 .logo{
-	height: 120px;
-	width: 120px;
+	height: inherit;
+	width: 88px;
 }
 
 /* .navibar, .navibarRight{
@@ -166,18 +177,71 @@ nav .title {
 	margin: 0 15px;
 } */
 
+nav #center {
+	display: inline-block;
+	justify-content: space-between;
+	align-items: center;
+}
+
 .search{
 	width: 300px;
-	height: 48px;
-	font-size: 32px;
-	font-family: "Blazed";
-	padding: 0 15px;
+	font-size: 24px;
+	padding: 4px;
+	padding-left: 12px;
+	border: 2px solid hsl(32, 69%, 69%);
 	border-radius: 8px;
-	border: 2px solid rgba(0, 255, 13, 0.936);
-	display: inline-block;
-	align-items: center;
+}
+
+nav #right {
+	height: inherit;
+	align-content: right;
+	width: fit-content;
+	display:flex;
+	overflow: hidden;
+	justify-content: space-evenly;
+	background-color: #246a42;
 	
 }
+
+nav #right button{
+	height: inherit;
+	padding: 16px;
+	border:none;
+	color: hsl(32, 69%, 69%);
+	background-color: inherit;
+	font-size: 24px;
+}
+
+nav .dropdown button{
+	height: inherit;
+	padding: 16px;
+	border:none;
+	color: hsl(32, 69%, 69%);
+	background-color: inherit;
+	align-content: center;
+	font-size: 24px;
+}
+
+nav #right button:hover{
+	background-color: #1b5032;
+}
+
+.dropdown-content{
+	display: none;
+	position: absolute;
+	z-index: 1;
+}
+
+#logout-btn{
+	float:none;
+	align-self: right;
+	display: block;
+}
+
+#profile_btn:hover .dropdown-content{
+	display: block;
+}
+
 
 /* .title{
 	font-style: italic; 
