@@ -56,6 +56,7 @@ export default class LoginView extends Vue {
 	message = "";
 	auth: Auth | null = null;
 	emailVerification = false;
+  $router: any;
 
 	get isValidInput(): boolean {
 		return this.u_email.length > 0 && this.u_pass.length > 0;
