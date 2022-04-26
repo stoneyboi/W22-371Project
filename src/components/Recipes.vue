@@ -24,7 +24,7 @@ export default class Recipes extends Vue {
     }
 
     goToHome(): void {
-        this.$router.push({ path: '/' })
+        this.$router.push({ path: '/' });
     }
 
     moreRecipes(): void {

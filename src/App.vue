@@ -1,6 +1,5 @@
 <template>
 	<div id="app">
-		<home-page />
 		<router-view></router-view>
 	</div>
 </template>
@@ -17,7 +16,7 @@ import Recipes from './components/Recipes.vue'
 		Login,
 	HomePage,
 	Profile,
-	Recipes
+	Recipes,
 	},
 })
 export default class App extends Vue {}
