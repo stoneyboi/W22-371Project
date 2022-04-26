@@ -14,7 +14,7 @@ import Profile from './components/Profile.vue'
 	components: {
 		Login,
 	HomePage,
-	Profile
+	Profile,
 	},
 })
 export default class App extends Vue {}
