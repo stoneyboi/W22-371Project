@@ -15,12 +15,15 @@
 			<div id="right">
 				<button id="explore-btn" class="navibar">Hot Food</button>
 				<div class="dropdown">
+
 					<button @click="goToProfile" id="profile-btn" class="navibar">Profile
 						<i class="fa fa-caret-down"></i>
 					</button>
+
 					<button @click="goToRecipes" id="recipes-btn" class="navibar">Recipes
 						<i class="fa fa-caret-down"></i>
 					</button>
+
 					<div class="dropdown-content">
 						<button id="logout-btn">Log Out</button>
 					</div>
@@ -131,6 +134,7 @@ export default class HomePage extends Vue {
 
   mounted(): void {
     console.log("Hello home page!");
+	console.log({router: this.$router})
   }
 
   goToRecipes(): void {

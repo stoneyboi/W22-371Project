@@ -1,6 +1,7 @@
 <template>
 	<div class="profile">
 		<h1>Profile</h1>
+        <button class="navibar" id="home-btn" @click="goToHome">&lt; Home Page</button>
 		<h2>{{userInfo}}</h2>
 		<h3>@{{username}}</h3>
 	</div>
@@ -19,6 +20,7 @@ import {
 
 @Component
 export default class Profile extends Vue {
+    $router: any;
 	userPhotoURL = ""
 	auth: Auth | null = null
 	userInfo = ""
@@ -32,6 +34,10 @@ export default class Profile extends Vue {
 				this.userInfo = `${user.displayName ?? "No Name"}`;
 			}
 		});
+	}
+
+	goToHome(): void {
+		this.$router.push('/');
 	}
 
 }

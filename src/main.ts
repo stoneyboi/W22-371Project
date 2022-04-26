@@ -5,14 +5,19 @@ import Recipes from '@/components/Recipes.vue'
 import Profile from '@/components/Profile.vue'
 import VueRouter, {RouteConfig} from 'vue-router';
 
+
 Vue.use(VueRouter);
+
 const routesArr: Array<RouteConfig> = [
-  {name: "My Home", path: "/", redirect: {name:"Home"}, component: Home},
+  {name: "My Home", path: "/", component: Home},
   {name: "My Recipes", path: "/recipes", component: Recipes},
   {name: "My Profile", path: "/profile", component: Profile},
 ];
-const myRouter = new VueRouter({routes: routesArr});
 
+const myRouter = new VueRouter({
+  routes: routesArr,
+  mode: 'history',
+});
 
 Vue.config.productionTip = false
 

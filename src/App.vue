@@ -1,6 +1,7 @@
 <template>
 	<div id="app">
 		<home-page />
+		<router-view></router-view>
 	</div>
 </template>
 
@@ -9,12 +10,14 @@ import { Component, Vue } from 'vue-property-decorator';
 import Login from './components/Login.vue'
 import HomePage from './components/HomePage.vue'
 import Profile from './components/Profile.vue'
+import Recipes from './components/Recipes.vue'
 
 @Component({
 	components: {
 		Login,
 	HomePage,
 	Profile,
+	Recipes
 	},
 })
 export default class App extends Vue {}
