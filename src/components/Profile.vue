@@ -8,8 +8,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator'
-import { component } from 'vue/types/umd';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 import {
   getAuth,
   onAuthStateChanged,
