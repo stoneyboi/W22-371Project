@@ -1,24 +1,44 @@
 <template>
     <div class="recipe">
-        <button class="navibar" id="home-btn" @click="goToHome">&lt; Home Page</button>
-        <button class="navibar" id="logout-btn" @click="logout">Logout</button>
-        <h1>this is the Recipes page</h1>
+        <nav class="navbar">
+			<div id="left">
+				<img class="logo" src="../assets/logo.png" />
+				<h1 class="title">RecipeMe</h1>
+			</div>
+			<div id="right">
+					<button @click="goToHome" id="recipes-btn" class="navibar">Home
+						<i class="fa fa-caret-down"></i>
+					</button>
 
-        <div>
+					<button @click="goToProfile" id="profile-btn" class="navibar">Profile
+						<i class="fa fa-caret-down"></i>
+					</button>
+
+					<div class="dropdown-content">
+						<button id="logout-btn">Log Out</button>
+					</div>
+			</div>
+		</nav>
+        <div class="content">
             <div class="input-section">
                 <label>Recipes per page</label>
-                <input type="number" v-model="numRecipes">
+                <input type="number" v-model.lazy="numRecipes">
+                <button @click="fetchRecipes">Fetch</button>
+
+                <!-- <label>Search Term</label>
+                <input type="text" v-model="searchTerm">
+                <button @click="fetchRecipes">Search</button> -->
             </div>
             <table class="recipes-table">
-                <tr>
+                <tr id="first-row">
                     <th>Image</th>
-                    <th>Slug</th>
+                    <th>Name</th>
                     <th>Cook Time(min)</th>
                     <th>Description</th>
                     <th>Instructions</th>
                 </tr>
-                <tr v-for="(u,pos) in recipeArr" :key="pos">
-                    <td><img width="200" height="200" src=u.thumbnail_url /></td>
+                <tr v-for="(u,pos) in recipeArr" :key="a-`${pos}`">
+                    <td><img width="200" height="200" v-bind:src=u.thumbnail_url /></td>
                     <td><p>{{u.slug}}</p></td>
                     <td>{{u.cook_time_minutes}}</td>
                     <td>{{u.description}}</td>
@@ -33,6 +53,121 @@
     </div>
 </template>
 
+<style scoped>
+.home {
+  background-color: hsl(32, 69%, 69%);
+}
+
+nav {
+  background-color: #246a42;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav #left {
+  width: fit-content;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .title {
+  font-family: "Blazed";
+  font-size: 56px;
+  color: rgb(32, 32, 32);
+}
+
+.logo {
+  height: inherit;
+  width: 88px;
+}
+
+nav #center {
+  display: inline-block;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search {
+  width: 300px;
+  font-size: 24px;
+  padding: 4px;
+  padding-left: 12px;
+  border: 2px solid hsl(32, 69%, 69%);
+  border-radius: 8px;
+}
+
+nav #right {
+  height: inherit;
+  align-content: right;
+  width: fit-content;
+  display: flex;
+  overflow: hidden;
+  justify-content: space-evenly;
+  background-color: #246a42;
+}
+
+nav #right button {
+  height: inherit;
+  padding: 16px;
+  border: none;
+  color: hsl(32, 69%, 69%);
+  background-color: inherit;
+  font-size: 24px;
+}
+
+nav #right button:hover {
+  background-color: #1b5032;
+}
+
+.content {
+  background-color: hsl(32, 69%, 69%);
+}
+
+.input-section {
+  background-color: hsl(32, 79%, 85%);
+  border: 1px solid black;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  margin-left: 3em;
+  display:-webkit-inline-flex
+}
+.inputSection > input {
+  margin-left: 1em;
+}
+#controls {
+  margin-left: 3em;
+  margin-top: 16px;
+}
+#first-row {
+    font-size: large;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+table tr:nth-child(even) {
+  background-color: hsl(143, 68%, 77%);
+}
+table tr > td {
+  padding: 0.5em;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+td > li {
+  text-align: right;
+  margin: 0 0.4em;
+  padding: 0.25em;
+  border: 1px solid black;
+  border-radius: 1em;
+  font-style: italic;
+  font-size: 75%;
+}
+td > li:hover {
+  background-color: white;
+}
+</style>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
@@ -44,6 +179,7 @@ export default class Recipes extends Vue {
     $router: any;
     recipeArr: Array<Recipe> = [];
     numRecipes = 5;
+    searchTerm = 'chicken';
 
     mounted(): void {
         this.fetchRecipes();
@@ -51,6 +187,10 @@ export default class Recipes extends Vue {
 
     goToHome(): void {
         this.$router.push({ path: '/' });
+    }
+
+    goToProfile(): void {
+        this.$router.push({ path: '/profile' })
     }
 
     logout(): void {
@@ -62,7 +202,10 @@ export default class Recipes extends Vue {
         .request({
                 method: 'GET',
                 url: 'https://tasty.p.rapidapi.com/recipes/list',
-                params: { from: Math.floor(Math.random() * 20), size: this.numRecipes},
+                params: { from: Math.floor(Math.random() * 20),
+                    size: this.numRecipes,
+                    prefix: this.searchTerm             
+                },
                 headers: {
                 'x-rapidapi-host': 'tasty.p.rapidapi.com',
                 'x-rapidapi-key': '0ba11f7329msh7be47b4be5b3d2dp1a3f29jsn187257194c85'
