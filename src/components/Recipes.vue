@@ -92,6 +92,7 @@ export default class Recipes extends Vue {
     this.$router.push({ path: "/login" });
   }
 
+
   fetchRecipes(): void {
     axios
       .request({
