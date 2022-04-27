@@ -30,10 +30,7 @@
                 <label>Recipes per page</label>
                 <input type="number" v-model.lazy="numRecipes">
                 <button @click="fetchRecipes">Fetch</button>
-<<<<<<< HEAD
 
-=======
->>>>>>> 850391086ba65aee1242cb79f84726b9c2dbcdb7
             </div>
             <table class="recipes-table">
                 <tr id="first-row">

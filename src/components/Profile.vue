@@ -198,10 +198,10 @@ nav #right button:hover {
 .user-info{
 	flex-basis: 33%;
 	position:sticky;
-	padding-top: 70px;
+	padding-top: 64px;
 	align-self: flex-start;
 	background: rgb(170, 135, 96);
-	border-radius: 8px;
+	border-radius: 16px;
 }
 
 .user-info #profile-pic{
@@ -210,17 +210,21 @@ nav #right button:hover {
 }
 
 .user-posts{
-	flex-basis: 67%;
+	flex-basis: 60%;
+	border-radius: 16px;
 	position:sticky;
-	padding-top: 70px;
+	padding-top: 32px;
 	align-self: flex-start;
 	background: #246a4286;
 }
 
 .user-posts h1{
-  font-family: "Blazed";
-  font-size: 32px;
-  color: rgb(32, 32, 32);
+	justify-content:space-between;
+	font-family: "Blazed";
+	font-size: 64px;
+	color: rgb(32, 32, 32);
+	margin: 0;
+	padding: 0px;
 }
 
 
