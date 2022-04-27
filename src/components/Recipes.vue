@@ -2,8 +2,10 @@
     <div class="recipe">
         <nav class="navbar">
 			<div id="left">
-				<img class="logo" src="../assets/logo.png" />
-				<h1 class="title">RecipeMe</h1>
+				<button @click="goToHome" class="home-img-btn">
+					<img class="logo" src="../assets/logo.png" />
+					<h1 class="title">RecipeMe</h1>
+				</button>
 			</div>
 			<div id="right">
 					<button @click="goToHome" id="recipes-btn" class="navibar">Home
@@ -25,9 +27,6 @@
                 <input type="number" v-model.lazy="numRecipes">
                 <button @click="fetchRecipes">Fetch</button>
 
-                <!-- <label>Search Term</label>
-                <input type="text" v-model="searchTerm">
-                <button @click="fetchRecipes">Search</button> -->
             </div>
             <table class="recipes-table">
                 <tr id="first-row">
@@ -85,6 +84,15 @@ nav .title {
 .logo {
   height: inherit;
   width: 88px;
+}
+
+.home-img-btn{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border: none;
+	background: none;
+	padding: 0px;
 }
 
 nav #center {
