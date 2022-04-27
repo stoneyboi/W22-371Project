@@ -24,9 +24,11 @@
                     <input type="number" class="form-control" v-model="recipe.time" required>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-primary btn-block">Add Recipe</button>
+                    <button class="btn btn-primary btn-block">Edit Recipe</button>
                 </div>
             </form>
+            <p></p>
+            <button class="btn btn-primary btn-block" @click="goBack">Go Back</button>
         </div>
     </div>
 </template>
@@ -34,7 +36,8 @@
     import { 
         updateDoc,
         collection,
-        getDocs
+        getDocs,
+        doc
 
     } from '@firebase/firestore';
     import { db } from '../myconfig';
@@ -48,7 +51,6 @@
         created() {
             // const recipeRef = doc(db, `recipes/${this.$route.params.id}`);
             // updateDoc(recipeRef, )
-
             // let dbRef = collection(db, `${this.$route.params.id}`);
             // getDocs(dbRef)
             // .then((query) => {
@@ -79,6 +81,9 @@
                 }).catch((error) => {
                     console.log(error);
                 });
+            },
+            goBack() {
+                this.$router.back();
             }
         }
     }

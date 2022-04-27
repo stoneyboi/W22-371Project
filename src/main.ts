@@ -19,7 +19,6 @@ const routesArr: Array<RouteConfig> = [
   {name: "My Recipes", path: "/recipes", component: Recipes},
   {name: "My Profile", path: "/profile", component: Profile},
   {name: "Login", path: "/login", component: Login},
-  {name: "Fire Recipes", path: "/fire", component: FireRecipes},
   {name: "edit", path: "/edit/:id", component: RecipeEdit},
   {name: "create", path: "/create", component: RecipeCreate},
   {name: "list", path: "/list", component: RecipeList},

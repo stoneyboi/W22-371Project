@@ -13,14 +13,17 @@
 			</div>
 
 			<div id="right">
-				<button id="explore-btn" class="navibar">Hot Food</button>
 				<div class="dropdown">
 
 					<button @click="goToProfile" id="profile-btn" class="navibar">Profile
 						<i class="fa fa-caret-down"></i>
 					</button>
 
-					<button @click="goToRecipes" id="recipes-btn" class="navibar">Recipes
+					<button @click="goToAddRecipes" id="recipes-btn" class="navibar">Add Recipes
+						<i class="fa fa-caret-down"></i>
+					</button>
+
+					<button @click="goToRecipes" id="recipes-btn" class="navibar">View Recipes
 						<i class="fa fa-caret-down"></i>
 					</button>
 
@@ -152,6 +155,10 @@ export default class HomePage extends Vue {
   goToProfile(): void {
 	console.log("to profile!");
 	this.$router.push({path: "/profile"});
+  }
+
+  goToAddRecipes(): void {
+    this.$router.push({path: '/create'})
   }
 
   goToFireRecipes(): void {
