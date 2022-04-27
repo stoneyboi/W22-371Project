@@ -49,7 +49,7 @@
           <td>{{ u.description }}</td>
           <td>
             <ol>
-              <li v-for="i in u.instructions" :key="i">{{ i.display_text }}</li>
+              <li v-for="i in u.instructions" :key="i"> {{ i.display_text }}</li>
             </ol>
           </td>
         </tr>
