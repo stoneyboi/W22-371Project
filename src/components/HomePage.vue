@@ -23,7 +23,7 @@
 						<i class="fa fa-caret-down"></i>
 					</button>
 
-					<button @click="goToRecipes" id="recipes-btn" class="navibar">View Recipes
+					<button @click="goToRecipes" id="recipes-btn" class="navibar">Recipes List
 						<i class="fa fa-caret-down"></i>
 					</button>
 
@@ -258,6 +258,16 @@ nav #right button:hover {
 #profile_btn:hover .dropdown-content {
   display: block;
 }
+
+/* .title{
+	font-style: italic; 
+	font-family: cursive;
+	font-family: "Blazed";
+	font-size: xx-large;
+	justify-self: center;
+	align-self: center;
+	color: rgb(32,32,32);
+} */
 
 .container {
   display: flex;

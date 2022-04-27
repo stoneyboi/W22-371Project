@@ -6,6 +6,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import Entry from './components/entry.vue'
 import Login from './components/Login.vue'
 import HomePage from './components/HomePage.vue'
 import Profile from './components/Profile.vue'
@@ -13,6 +14,7 @@ import Recipes from './components/Recipes.vue'
 
 @Component({
 	components: {
+		Entry,
 		Login,
 	HomePage,
 	Profile,

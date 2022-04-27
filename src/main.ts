@@ -10,6 +10,9 @@ import RecipeCreate from '@/components/RecipeCreate.vue'
 import RecipeList from '@/components/RecipeList.vue'
 import VueRouter, {RouteConfig} from 'vue-router'
 //import 'bootstrap/dist/css/bootstrap.min.css'
+import Entry from '@/components/entry.vue'
+import {initializeApp, FirebaseApp} from "firebase/app";
+import {getFirestore, Firestore} from "firebase/firestore";
 
 
 Vue.use(VueRouter);
@@ -22,6 +25,7 @@ const routesArr: Array<RouteConfig> = [
   {name: "edit", path: "/edit/:id", component: RecipeEdit},
   {name: "create", path: "/create", component: RecipeCreate},
   {name: "list", path: "/list", component: RecipeList},
+  {name: "Entry", path: "/", component: Entry},
 ];
 
 const myRouter = new VueRouter({

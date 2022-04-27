@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div id="container">
     <section>
-      <div id="loginpanel">
+      <div id="loginpanel" class="isxl">
         <input type="text" v-model="u_email" placeholder="Enter your email" />
         <input
           type="password"
@@ -17,12 +17,6 @@
           </button>
           <button :disabled="!isValidInput" @click="withEmail">Login</button>
         </div>
-
-        <div>
-          <input id="verif" type="checkbox" v-model="emailVerification" />
-          <label for="verif">Send verification email</label>
-        </div>
-
         <div id="withProvider">
           <button @click="withGMail">Google</button>
           <button @click="withGitHub">GitHub</button>
@@ -51,13 +45,15 @@ import {
   signInWithRedirect,
   sendPasswordResetEmail,
 } from "firebase/auth";
+import { FirebaseError } from "@firebase/util";
+
 
 @Component
 export default class LoginView extends Vue {
   u_email = "";
   u_pass = "";
   message = "";
-  auth: Auth | null = null;
+  auth: Auth|undefined;
   emailVerification = false;
   $router: any;
 
@@ -80,14 +76,10 @@ export default class LoginView extends Vue {
 
   createAccount(): void {
     createUserWithEmailAndPassword(this.auth!, this.u_email, this.u_pass)
-      .then(async (cr: UserCredential) => {
-        if (this.emailVerification) {
-          await sendEmailVerification(cr.user);
-          await signOut(this.auth!);
-          this.showMessage(
-            "An email verification has been sent to " + cr.user.email
-          );
-        } else this.showMessage(`New account created with UID ${cr.user.uid}`);
+      .then(() => {
+        
+        alert(`New account created with ${this.u_email}`);
+        this.$router.push({ path: "/home", params: { byWayOf: "Email" } });
       })
       .catch((err: any) => {
         this.showMessage(`Unable to create account ${err}`);
@@ -100,6 +92,7 @@ export default class LoginView extends Vue {
         this.showMessage(
           `A password reset link has been sent to ${this.u_email}`
         );
+        alert(`Please change your password and try to log in again`);
       })
       .catch((err: any) => {
         this.showMessage(`Unable to reset password ${err}`);
@@ -108,28 +101,25 @@ export default class LoginView extends Vue {
 
   withEmail(): void {
     signInWithEmailAndPassword(this.auth!, this.u_email, this.u_pass)
-      .then(async (cr: UserCredential) => {
-        if (cr.user.emailVerified) {
-          console.log("email login");
-          this.$router.push({ name: "home", params: { byWayOf: "Email" } });
-        } else {
-          this.showMessage("You must first verify your email");
-          await signOut(this.auth!);
-        }
+      .then(() => {
+        console.log("email login");
+        alert('Welcome');
+        this.$router.push({ path: "/home", params: { byWayOf: "Email" } });
       })
-      .catch((err: any) => {
-        this.showMessage(`Unable to login ${err}`);
+      .catch(error => {
+        alert(error.message);
       });
+     
   }
 
   withGMail(): void {
     const provider = new GoogleAuthProvider();
     signInWithPopup(this.auth!, provider)
-      .then((cred: UserCredential) => {
+      .then(() => {
         console.log("Yes, logged in");
 
         // Move to the home page
-        this.$router.push({ name: "home", params: { byWayOf: "Google" } });
+        this.$router.push({ path: "/home", params: { byWayOf: "Google" } });
       })
       .catch((err: any) => {
         this.showMessage(`Unable to login with GMail ${err}`);
@@ -143,14 +133,20 @@ export default class LoginView extends Vue {
     //   allow_signup: "false",
     // });
     signInWithPopup(this.auth!, provider)
-      .then((cred: UserCredential) => {
+      .then(() => {
         console.log("Yes, logged in with GitHub");
         // Move to the home page
-        this.$router.push({ name: "home", params: { byWayOf: "GitHub" } });
+        this.$router.push({ path: "/home", params: { byWayOf: "GitHub" } });
       })
       .catch((err: any) => {
         this.showMessage(`Unable to login with GitHub ${err}`);
       });
+  }
+  data() {
+    return { 
+      email: '', 
+      password: '', 
+    }; 
   }
 }
 </script>
@@ -167,13 +163,15 @@ export default class LoginView extends Vue {
 
 section {
   margin-bottom: 1em;
+  background-color: #246a42;
+  display: flexbox;
 }
 
 #msgbox {
   font-size: 80%;
   font-style: italic;
   border-radius: 0.5em;
-  background-color: hsl(0, 0%, 75%);
+  background-color: hsl(0, 49%, 85%);
   padding: 0.5em;
 }
 
@@ -197,5 +195,11 @@ button {
 
 label {
   font-size: 80%;
+}
+.is-xl 
+{
+    font-size: 3rem;
+    height: 150px;
+    width: 150px;
 }
 </style>
