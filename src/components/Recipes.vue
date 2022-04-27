@@ -1,84 +1,98 @@
 <template>
-  <div class="recipe">
-    <nav class="navbar">
-      <div id="left">
-        <img class="logo" src="../assets/logo.png" />
-        <h1 class="title">RecipeMe</h1>
-      </div>
-      <div id="right">
-        <button @click="goToHome" id="recipes-btn" class="navibar">
-          Home
-          <i class="fa fa-caret-down"></i>
-        </button>
-
-        <button @click="goToList" id="profile-btn" class="navibar">
-          Recipe List
-          <i class="fa fa-caret-down"></i>
-        </button>
-
-        <button @click="goToCreate" id="fire-recipes-btn" class="navibar">
-          Add Recipe
-          <i class="fa fa-caret-down"></i>
-        </button>
-
-        <div class="dropdown-content">
-          <button id="logout-btn">Log Out</button>
+  <div>
     <div class="recipe">
-        <nav class="navbar">
-			<div id="left">
-				<button @click="goToHome" class="home-img-btn">
-					<img class="logo" src="../assets/logo.png" />
-					<h1 class="title">RecipeMe</h1>
-				</button>
-			</div>
-			<div id="right">
-					<button @click="goToHome" id="recipes-btn" class="navibar">Home
-						<i class="fa fa-caret-down"></i>
-					</button>
-
-					<button @click="goToProfile" id="profile-btn" class="navibar">Profile
-						<i class="fa fa-caret-down"></i>
-					</button>
-
-					<button @click="goToFireRecipes" id="fire-recipes-btn" class="navibar">Add Recipe
-						<i class="fa fa-caret-down"></i>
-					</button>
-
-					<div class="dropdown-content">
-						<button id="logout-btn">Log Out</button>
-					</div>
-			</div>
-		</nav>
-        <div class="content">
-            <div class="input-section">
-                <label>Recipes per page</label>
-                <input type="number" v-model.lazy="numRecipes">
-                <button @click="fetchRecipes">Fetch</button>
-
-            </div>
-            <table class="recipes-table">
-                <tr id="first-row">
-                    <th>Image</th>
-                    <th>Name</th>
-                    <th>Cook Time(min)</th>
-                    <th>Description</th>
-                    <th>Instructions</th>
-                </tr>
-                <tr v-for="(u,pos) in recipeArr" :key="a-`${pos}`">
-                    <td><img width="200" height="200" v-bind:src=u.thumbnail_url /></td>
-                    <td><p>{{u.slug}}</p></td>
-                    <td>{{u.cook_time_minutes}}</td>
-                    <td>{{u.description}}</td>
-                    <td>
-                        <ol>
-                            <li v-for="i in u.instructions" :key="i">{{i.display_text}}</li>
-                        </ol>
-                    </td>
-                </tr>
-            </table>
+      <nav class="navbar">
+        <div id="left">
+          <img class="logo" src="../assets/logo.png" />
+          <h1 class="title">RecipeMe</h1>
         </div>
+        <div id="right">
+          <button @click="goToHome" id="recipes-btn" class="navibar">
+            Home
+            <i class="fa fa-caret-down"></i>
+          </button>
+
+          <button @click="goToList" id="profile-btn" class="navibar">
+            Recipe List
+            <i class="fa fa-caret-down"></i>
+          </button>
+
+          <button @click="goToCreate" id="fire-recipes-btn" class="navibar">
+            Add Recipe
+            <i class="fa fa-caret-down"></i>
+          </button>
+
+          <div class="dropdown-content">
+            <button id="logout-btn">Log Out</button>
+          </div>
+        </div>
+      </nav>
+      <nav class="navbar">
+        <div id="left">
+          <button @click="goToHome" class="home-img-btn">
+            <img class="logo" src="../assets/logo.png" />
+            <h1 class="title">RecipeMe</h1>
+          </button>
+        </div>
+        <div id="right">
+          <button @click="goToHome" id="recipes-btn" class="navibar">
+            Home
+            <i class="fa fa-caret-down"></i>
+          </button>
+
+          <button @click="goToProfile" id="profile-btn" class="navibar">
+            Profile
+            <i class="fa fa-caret-down"></i>
+          </button>
+
+          <button
+            @click="goToFireRecipes"
+            id="fire-recipes-btn"
+            class="navibar"
+          >
+            Add Recipe
+            <i class="fa fa-caret-down"></i>
+          </button>
+
+          <div class="dropdown-content">
+            <button id="logout-btn">Log Out</button>
+          </div>
+        </div>
+      </nav>
+      <div class="content">
+        <div class="input-section">
+          <label>Recipes per page</label>
+          <input type="number" v-model.lazy="numRecipes" />
+          <button @click="fetchRecipes">Fetch</button>
+        </div>
+        <table class="recipes-table">
+          <tr id="first-row">
+            <th>Image</th>
+            <th>Name</th>
+            <th>Cook Time(min)</th>
+            <th>Description</th>
+            <th>Instructions</th>
+          </tr>
+          <tr v-for="(u, pos) in recipeArr" :key="a - `${pos}`">
+            <td>
+              <img width="200" height="200" v-bind:src="u.thumbnail_url" />
+            </td>
+            <td>
+              <p>{{ u.slug }}</p>
+            </td>
+            <td>{{ u.cook_time_minutes }}</td>
+            <td>{{ u.description }}</td>
+            <td>
+              <ol>
+                <li v-for="i in u.instructions" :key="i">
+                  {{ i.display_text }}
+                </li>
+              </ol>
+            </td>
+          </tr>
+        </table>
       </div>
-    </nav>
+    </div>
     <div class="content">
       <div class="input-section">
         <label>Recipes per page</label>
@@ -205,13 +219,13 @@ nav .title {
   width: 88px;
 }
 
-.home-img-btn{
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	border: none;
-	background: none;
-	padding: 0px;
+.home-img-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+  background: none;
+  padding: 0px;
 }
 
 nav #center {

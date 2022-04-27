@@ -9,9 +9,9 @@ divMain.className = "Main";
 const divRight = document.createElement("div");
 divRight.className ="divRight";
 
-divRoot.appendChild(divLeft);
-divRoot.appendChild(divMain);
-divRoot.appendChild(divRight);
+divRoot?.appendChild(divLeft);
+divRoot?.appendChild(divMain);
+divRoot?.appendChild(divRight);
 
 const divLinks = document.createElement("div");
 divLeft.appendChild(divLinks);

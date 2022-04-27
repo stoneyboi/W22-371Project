@@ -9,7 +9,7 @@ import RecipeEdit from '@/components/RecipeEdit.vue'
 import RecipeCreate from '@/components/RecipeCreate.vue'
 import RecipeList from '@/components/RecipeList.vue'
 import VueRouter, {RouteConfig} from 'vue-router'
-//import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import Entry from '@/components/entry.vue'
 import {initializeApp, FirebaseApp} from "firebase/app";
 import {getFirestore, Firestore} from "firebase/firestore";

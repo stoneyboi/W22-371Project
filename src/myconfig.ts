@@ -12,9 +12,5 @@ const config = {
 };
 
 const myapp: FirebaseApp = initializeApp(config);
-<<<<<<< HEAD
 export const db:Firestore = getFirestore(myapp);
 
-=======
-export const db:Firestore = getFirestore(myapp);
->>>>>>> origin/Jacob
