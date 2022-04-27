@@ -134,7 +134,6 @@ export default class HomePage extends Vue {
 
   mounted(): void {
     console.log("Hello home page!");
-	console.log({router: this.$router})
   }
 
   goToRecipes(): void {

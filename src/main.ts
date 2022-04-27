@@ -3,6 +3,7 @@ import App from './App.vue'
 import Home from '@/components/HomePage.vue'
 import Recipes from '@/components/Recipes.vue'
 import Profile from '@/components/Profile.vue'
+import Login from '@/components/Login.vue'
 import VueRouter, {RouteConfig} from 'vue-router';
 
 
@@ -12,6 +13,7 @@ const routesArr: Array<RouteConfig> = [
   {name: "My Home", path: "/", component: Home},
   {name: "My Recipes", path: "/recipes", component: Recipes},
   {name: "My Profile", path: "/profile", component: Profile},
+  {name: "Login", path: "/login", component: Login},
 ];
 
 const myRouter = new VueRouter({

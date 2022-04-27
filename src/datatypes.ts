@@ -1,17 +1,35 @@
-type randomRecipes = {
-    data: Array<recipe>
-}
+// type randomRecipes = {
+//     data: Array<recipe>
+// }
 
-type recipe = {
-    name: string;
-    cookTime: string;
-    images: Array<string>;
-    ingredients: Array<string>;
-    instructions: Array<Instructions>;
+// type recipe = {
+//     name: string;
+//     cookTime: string;
+//     images: Array<string>;
+//     ingredients: Array<string>;
+//     instructions: Array<Instructions>;
+// }
+
+// type Instructions = {
+//     steps: Array<string>;
+// }
+
+// export {randomRecipes, recipe}
+
+type RandomRecipes = {
+    results: Array<Recipe>;
 }
 
 type Instructions = {
-    steps: Array<string>;
+    display_text: string;
 }
 
-export {randomRecipes, recipe}
+type Recipe = {
+    slug: string;
+    cook_time_minutes: number;
+    description: string;
+    instructions: Array<Instructions>;
+    thumbnail_url: string;
+}
+
+export {RandomRecipes, Recipe};
