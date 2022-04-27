@@ -23,6 +23,10 @@
 						<i class="fa fa-caret-down"></i>
 					</button>
 
+					<button @click="goToRandomRecipes" id="recipes-btn" class="navibar">Random Recipes
+						<i class="fa fa-caret-down"></i>
+					</button>
+
 					<div class="dropdown-content">
 						<button id="logout-btn">Log Out</button>
 					</div>
@@ -116,6 +120,10 @@ export default class HomePage extends Vue {
   }
 
   goToRecipes(): void {
+	this.$router.push({path: "/list"});
+  }
+
+  goToRandomRecipes(): void {
 	console.log("to recipes!");
     this.$router.push({path: "/recipes"});
   }
@@ -123,6 +131,11 @@ export default class HomePage extends Vue {
   goToProfile(): void {
 	console.log("to profile!");
 	this.$router.push({path: "/profile"});
+  }
+
+  goToFireRecipes(): void {
+	console.log("to fire recipes!");
+	this.$router.push({path: "/fire"});
   }
 
 }

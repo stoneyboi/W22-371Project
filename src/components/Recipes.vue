@@ -16,6 +16,10 @@
 						<i class="fa fa-caret-down"></i>
 					</button>
 
+					<button @click="goToFireRecipes" id="fire-recipes-btn" class="navibar">Add Recipe
+						<i class="fa fa-caret-down"></i>
+					</button>
+
 					<div class="dropdown-content">
 						<button id="logout-btn">Log Out</button>
 					</div>
@@ -26,7 +30,10 @@
                 <label>Recipes per page</label>
                 <input type="number" v-model.lazy="numRecipes">
                 <button @click="fetchRecipes">Fetch</button>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 850391086ba65aee1242cb79f84726b9c2dbcdb7
             </div>
             <table class="recipes-table">
                 <tr id="first-row">
@@ -132,6 +139,11 @@ nav #right button {
 nav #right button:hover {
   background-color: #1b5032;
 }
+#logout-btn {
+  float: none;
+  align-self: right;
+  display: block;
+}
 
 .content {
   background-color: hsl(32, 69%, 69%);
@@ -199,6 +211,10 @@ export default class Recipes extends Vue {
 
     goToProfile(): void {
         this.$router.push({ path: '/profile' })
+    }
+
+    goToFireRecipes(): void {
+        this.$router.push({ path: '/fire'})
     }
 
     logout(): void {
