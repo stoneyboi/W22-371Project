@@ -36,28 +36,8 @@
 					</div>
 				</div>
 
-			<!-- <h2 class="navibar">Log Out</h2> -->
 			</div>
 
-			<!-- <div class="title">S
-				<h1>RecipeMe</h1>
-			</div>
-			
-			<div class="navibar">
-				<ul id="navElements">
-					<li>
-						<h2>Profile</h2>
-					</li>
-					<li> 
-						<h2>Explore Recipes</h2>
-					</li>
-				</ul>
-			</div>
-			
-			<div class="navibarRight">
-				<input type="text" placeholder="Search!" class="search">  
-				<h1>Log Out</h1>
-			</div> -->
 		</nav>
 
 		<div id="insertHere" class="container">
@@ -278,16 +258,6 @@ nav #right button:hover {
 #profile_btn:hover .dropdown-content {
   display: block;
 }
-
-/* .title{
-	font-style: italic; 
-	font-family: cursive;
-	font-family: "Blazed";
-	font-size: xx-large;
-	justify-self: center;
-	align-self: center;
-	color: rgb(32,32,32);
-} */
 
 .container {
   display: flex;
